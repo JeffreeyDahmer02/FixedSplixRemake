@@ -1,7 +1,7 @@
 -- // Coded by _notportal
 -- Example at bottom
 if not isfile("ProggyClean.ttf") then
-	writefile("ProggyClean.ttf", game:HttpGet("https://github.com/f1nobe7650/Nebula/raw/main/fs-tahoma-8px.ttf"))
+	writefile("ProggyClean.ttf", game:HttpGet("https://github.com/f1nobe7650/other/raw/main/fs-tahoma-8px.ttf"))
 end
 if isfile("UI_FONT.font") then
 	delfile("UI_FONT.font")
@@ -11,7 +11,7 @@ local Library = {};
 do
 	Library = {
 		Open = true;
-		Accent = Color3.fromRGB(85, 170, 255);
+		Accent = Color3.fromRGB(189, 172,255);
 		PageAmount = 0;
 		Pages = {};
 		Sections = {};
@@ -64,7 +64,7 @@ do
 			[Enum.KeyCode.Plus] = "+",
 			[Enum.KeyCode.Period] = ".",
 			[Enum.KeyCode.Backquote] = "`",
-			[Enum.UserInputType.MouseButton1] = "MB1",
+			[Enum.UserInputType.Touch] = "MB1",
 			[Enum.UserInputType.MouseButton2] = "MB2",
 			[Enum.UserInputType.MouseButton3] = "MB3"
 		};
@@ -331,7 +331,7 @@ do
 				end;
 			end)
 			Library:Connection(game:GetService("UserInputService").InputEnded, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					dragging = false
 				end
 			end)
@@ -583,49 +583,49 @@ do
 			set(default, defaultalpha)
 
 			Sat.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					slidingsaturation = true
 					update()
 				end
 			end)
 
 			Sat.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					slidingsaturation = false
 					update()
 				end
 			end)
 
 			Hue.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					slidinghue = true
 					update()
 				end
 			end)
 
 			Hue.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					slidinghue = false
 					update()
 				end
 			end)
 
 			Alpha.InputBegan:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					slidingalpha = true
 					update()
 				end
 			end)
 
 			Alpha.InputEnded:Connect(function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					slidingalpha = false
 					update()
 				end
 			end)
 
 			Library:Connection(game:GetService("UserInputService").InputChanged, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseMovement then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					if slidingalpha then
 						update()
 					end
@@ -647,7 +647,7 @@ do
 			end
 
 			Library:Connection(game:GetService("UserInputService").InputBegan, function(Input)
-				if ColorWindow.Visible and Input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if ColorWindow.Visible and Input.UserInputType == Enum.UserInputType.Touch then
 					if not Library:IsMouseOverFrame(ColorWindow) and not Library:IsMouseOverFrame(Icon) and not Library:IsMouseOverFrame(parent) then
 						ColorWindow.Visible = false
 						parent.ZIndex = 1
@@ -984,7 +984,7 @@ do
 				Window.Dragging[2] = UDim2.new(0, Location.X - AccentOutline.AbsolutePosition.X, 0, Location.Y - AccentOutline.AbsolutePosition.Y)
 			end)
 			Library:Connection(game:GetService("UserInputService").InputEnded, function(Input)
-				if Input.UserInputType == Enum.UserInputType.MouseButton1 and Window.Dragging[1] then
+				if Input.UserInputType == Enum.UserInputType.Touch and Window.Dragging[1] then
 					local Location = game:GetService("UserInputService"):GetMouseLocation()
 					Window.Dragging[1] = false
 					Window.Dragging[2] = UDim2.new(0, 0, 0, 0)
@@ -1940,7 +1940,7 @@ do
 				end)
 				--
 				Library:Connection(game:GetService("UserInputService").InputBegan, function(Input)
-					if ModeBox.Visible and Input.UserInputType == Enum.UserInputType.MouseButton1 then
+					if ModeBox.Visible and Input.UserInputType == Enum.UserInputType.Touch then
 						if not Library:IsMouseOverFrame(ModeBox) then
 							ModeBox.Visible = false
 							NewToggle.ZIndex = 1
@@ -2184,29 +2184,29 @@ do
 			end
 			--
 			Library:Connection(Inline.InputBegan, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					Sliding = true
 					ISlide(input)
 				end
 			end)
 			Library:Connection(Inline.InputEnded, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					Sliding = false
 				end
 			end)
 			Library:Connection(Accent.InputBegan, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					Sliding = true
 					ISlide(input)
 				end
 			end)
 			Library:Connection(Accent.InputEnded, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					Sliding = false
 				end
 			end)
 			Library:Connection(game:GetService("UserInputService").InputChanged, function(input)
-				if input.UserInputType == Enum.UserInputType.MouseMovement then
+				if input.UserInputType == Enum.UserInputType.Touch then
 					if Sliding then
 						ISlide(input)
 					end
@@ -2392,7 +2392,7 @@ do
 				end
 			end)
 			Library:Connection(game:GetService("UserInputService").InputBegan, function(Input)
-				if ContentOutline.Visible and Input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if ContentOutline.Visible and Input.UserInputType == Enum.UserInputType.Touch then
 					if not Library:IsMouseOverFrame(ContentOutline) and not Library:IsMouseOverFrame(Inline) then
 						ContentOutline.Visible = false
 						NewList.ZIndex = 1
@@ -3343,7 +3343,7 @@ do
 			end)
 			--
 			Library:Connection(game:GetService("UserInputService").InputBegan, function(Input)
-				if ModeBox.Visible and Input.UserInputType == Enum.UserInputType.MouseButton1 then
+				if ModeBox.Visible and Input.UserInputType == Enum.UserInputType.Touch then
 					if not Library:IsMouseOverFrame(ModeBox) then
 						ModeBox.Visible = false
 						NewBind.ZIndex = 1
@@ -4262,7 +4262,7 @@ do
 				Indicator.Dragging[2] = UDim2.new(0, Location.X - Outline.AbsolutePosition.X, 0, Location.Y - Outline.AbsolutePosition.Y)
 			end)
 			Library:Connection(game:GetService("UserInputService").InputEnded, function(Input)
-				if Input.UserInputType == Enum.UserInputType.MouseButton1 and Indicator.Dragging[1] then
+				if Input.UserInputType == Enum.UserInputType.Touch and Indicator.Dragging[1] then
 					local Location = game:GetService("UserInputService"):GetMouseLocation()
 					Indicator.Dragging[1] = false
 					Indicator.Dragging[2] = UDim2.new(0, 0, 0, 0)
@@ -4430,4 +4430,21 @@ do
 		--
 	end;
 end;
+
+-- Local Variables
+local Flags = Library.Flags
+local Pointers = Library.Pointers
+local Utility = Library.Utility
+
+getfenv(0)["Library"] = Library;
+getfenv(0)["Flags"] = Flags;
+getfenv(0)["Pointers"] = Pointers;
+
+local Bodyparts = {}
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do 
+	if v:IsA("BasePart") then 
+		table.insert(Bodyparts, v.Name)
+	end 
+end
 return Library
